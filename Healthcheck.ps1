@@ -1,10 +1,9 @@
-﻿### Healthcheck showing server Uptime, 3389 Port Status, TermService and ProfSvc status
+### Healthcheck showing server Uptime, 3389 Port Status, TermService and ProfSvc status
 ### To Run the script create file named "server-list.txt", 
-### containing the list of server names and place it in a directory of your choice. 
-### Change the directory path in the first and last line of the script.
+### containing the list of server names and place it in the script's directory. 
 ### Execute the script. When it is finished it will create results.txt file in the same directory
 
-$names = Get-Content "C:\Temp\sko\server-list.txt" 
+$names = Get-Content ".\server-list.txt" 
         @( 
            foreach ($name in $names) 
           { 
@@ -32,4 +31,4 @@ $names = Get-Content "C:\Temp\sko\server-list.txt"
                 Write-output "$name is not pinging" 
                   } 
                } 
-         ) | Out-file -FilePath "C:\Temp\sko\results.txt"
+         ) | Out-file -FilePath ".\results.txt"
